@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.options import Options
 @pytest.fixture(scope="function")
 def driver():
     chrome_options = Options()
-    # chrome_options.add_argument("--headless")  # Убери, если нужен GUI
+    chrome_options.add_argument("--headless")  # Убери, если нужен GUI
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--start-maximized")
 

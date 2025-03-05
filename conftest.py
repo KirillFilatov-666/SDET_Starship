@@ -13,6 +13,6 @@ def driver():
     driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(10)
 
-    yield driver  # Передача драйвера в тест
+    yield driver
 
-    driver.quit()  # Закрываем браузер после теста
+    driver.quit()

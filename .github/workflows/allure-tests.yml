@@ -5,10 +5,11 @@ on:
     branches:
       - main
   pull_request:
+  workflow_dispatch:  # 👈 Добавляет кнопку "Run workflow"
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Можно заменить на windows-latest, если нужен Windows
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -30,7 +31,7 @@ jobs:
           tar -xzf allure.tar.gz
           sudo mv allure-2.25.0 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
-          allure --version  # Проверяем установку
+          allure --version
 
       - name: Run Tests with Allure
         run: pytest --alluredir=allure-results

@@ -27,11 +27,13 @@ jobs:
 
       - name: Install Allure
         run: |
-          curl -o allure.tar.gz -L https://github.com/allure-framework/allure2/releases/latest/download/allure-2.25.0.tgz
-          tar -xzf allure.tar.gz
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
+          wget -O allure-2.25.0.tgz https://github.com/allure-framework/allure2/releases/download/2.25.0/allure-2.25.0.tgz
+          tar -xzf allure-2.25.0.tgz
           sudo mv allure-2.25.0 /opt/allure
           sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
-          allure --version
+          allure --version  # Проверяем установку
 
       - name: Run Tests with Allure
         run: pytest --alluredir=allure-results
